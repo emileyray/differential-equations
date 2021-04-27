@@ -1,9 +1,7 @@
 # differential-equations
 A tool to solve a specific differential equation using several numerica methdos
 
-<p align="left">
-<img width="400" src="https://user-images.githubusercontent.com/69918609/116294420-9cab2580-a7a0-11eb-80bd-5560d3496180.png"/>
-</p>
+Analyze the efficiency of different numeric methdos, LTE, and GTE by solving a specific differnetial equations and setting different parameters
 
 <p align="left">
 <img width="400" src="https://user-images.githubusercontent.com/69918609/116294420-9cab2580-a7a0-11eb-80bd-5560d3496180.png"/>
