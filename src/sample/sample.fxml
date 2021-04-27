@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="809.0" prefWidth="1230.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+  <tabs>
+    <Tab text="First Part">
+         <content>
+            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="780.0" prefWidth="1230.0" style="-fx-background-color: #252845;">
+               <children>
+                  <Label layoutX="14.0" layoutY="15.0" text="DE Assignment" textFill="WHITE">
+                     <font>
+                        <Font name="Microsoft Yi Baiti" size="22.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="157.0" layoutY="15.0" prefHeight="23.0" prefWidth="54.0" text="X from:" textFill="WHITE">
+                     <font>
+                        <Font name="Microsoft Yi Baiti" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="157.0" layoutY="55.0" prefHeight="23.0" prefWidth="54.0" text="X to:" textFill="WHITE">
+                     <font>
+                        <Font name="Microsoft Yi Baiti" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="489.0" layoutY="15.0" prefHeight="23.0" prefWidth="54.0" text="Y(X0):" textFill="WHITE">
+                     <font>
+                        <Font name="Microsoft Yi Baiti" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="157.0" layoutY="105.0" prefHeight="23.0" prefWidth="64.0" text="N steps:" textFill="WHITE">
+                     <font>
+                        <Font name="Microsoft Yi Baiti" size="20.0" />
+                     </font>
+                  </Label>
+                  <AnchorPane layoutY="150.0" opacity="0.85" prefHeight="630.0" prefWidth="1230.0" style="-fx-background-color: #FFFFFF;" />
+                  <LineChart fx:id="lineGraph" animated="false" createSymbols="false" layoutY="150.0" legendVisible="false" prefHeight="620.0" prefWidth="600.0" title="e^(2x) + e^x + y^2 - 2ye^x">
+                     <xAxis>
+                        <NumberAxis fx:id="X" autoRanging="false" lowerBound="-10" side="BOTTOM" tickUnit="1" upperBound="10" />
+                     </xAxis>
+                     <yAxis>
+                        <NumberAxis fx:id="Y" autoRanging="false" lowerBound="-10" side="LEFT" upperBound="10" />
+                     </yAxis>
+                  </LineChart>
+                  <LineChart fx:id="LTEGraph" animated="false" createSymbols="false" layoutX="600.0" layoutY="150.0" legendVisible="false" prefHeight="310.0" prefWidth="600.0">
+                     <xAxis>
+                        <NumberAxis fx:id="LTEX" autoRanging="false" lowerBound="-10" side="BOTTOM" tickUnit="1" upperBound="10" />
+                     </xAxis>
+                     <yAxis>
+                        <NumberAxis fx:id="LTEY" autoRanging="false" lowerBound="-10" side="LEFT" upperBound="10" />
+                     </yAxis>
+                  </LineChart>
+                  <LineChart fx:id="GTEGraph" animated="false" createSymbols="false" layoutX="600.0" layoutY="460.0" legendVisible="false" prefHeight="310.0" prefWidth="600.0">
+                     <xAxis>
+                        <NumberAxis fx:id="GTEX" autoRanging="false" lowerBound="-10" side="BOTTOM" tickUnit="1" upperBound="10" />
+                     </xAxis>
+                     <yAxis>
+                        <NumberAxis fx:id="GTEY" autoRanging="false" lowerBound="-10" side="LEFT" upperBound="10" />
+                     </yAxis>
+                  </LineChart>
+                  <CheckBox fx:id="EulerCheckBox" disable="true" layoutX="813.0" layoutY="24.0" mnemonicParsing="false" onAction="#handleEulerCheckBox" prefHeight="17.0" prefWidth="154.0" text="Euler" textFill="WHITE" />
+                  <CheckBox fx:id="ImprovedEulerCheckBox" disable="true" layoutX="813.0" layoutY="49.0" mnemonicParsing="false" onAction="#handleImprovedEulerCheckBox" prefHeight="17.0" prefWidth="154.0" text="Improved Euler" textFill="WHITE" />
+                  <CheckBox fx:id="RungeKuttaCheckBox" disable="true" layoutX="813.0" layoutY="74.0" mnemonicParsing="false" onAction="#handleRungeKuttaCheckBox" prefHeight="17.0" prefWidth="154.0" text="Runge-Kutta" textFill="WHITE" />
+                  <CheckBox fx:id="ExactSolutionCheckBox" disable="true" layoutX="813.0" layoutY="99.0" mnemonicParsing="false" onAction="#handleExactSolutionCheckBox" prefHeight="17.0" prefWidth="154.0" text="Exact Solution" textFill="WHITE" />
+                  <Circle fx:id="red" layoutX="950.0" layoutY="33.0" radius="6.0" />
+                  <Circle fx:id="green" layoutX="950.0" layoutY="58.0" radius="6.0" />
+                  <Circle fx:id="blue" layoutX="950.0" layoutY="83.0" radius="6.0" />
+                  <Circle fx:id="grey" layoutX="950.0" layoutY="108.0" radius="6.0" />
+                  <Slider fx:id="X_from" layoutX="230.0" layoutY="20.0" min = "-5" max="15.0" onMouseDragged="#handleX_from" showTickLabels="true" showTickMarks="true" />
+                  <Slider fx:id="X_to" layoutX="230.0" layoutY="63.0" max="15.0" onMouseDragged="#handleX_to" showTickLabels="true" showTickMarks="true" />
+                  <Slider fx:id="Y_0" layoutX="554.0" layoutY="20.0" min = "-15.0"  max="15.0" onMouseDragged="#handleY_0" showTickLabels="true" showTickMarks="true" />
+                  <Slider fx:id="N_steps" layoutX="230.0" layoutY="106.0" max="1000" min="1.0" onMouseDragged="#handleN_steps" prefHeight="38.0" prefWidth="463.0" showTickLabels="true" showTickMarks="true" />
+                  <TextField fx:id="X_from_textField" layoutX="383.0" layoutY="15.0" onKeyTyped="#handleX_from_textField" prefHeight="25.0" prefWidth="81.0" promptText="X from" />
+                  <TextField fx:id="X_to_textField" layoutX="383.0" layoutY="57.0" onKeyTyped="#handleX_to_textField" prefHeight="25.0" prefWidth="81.0" promptText="X to" />
+                  <TextField fx:id="Y_0_textField" layoutX="706.0" layoutY="15.0" onKeyTyped="#handleY_0_textField" prefHeight="25.0" prefWidth="81.0" promptText="Y(X0)" />
+                  <Spinner fx:id="N_stepsSpinner" editable="true" layoutX="706.0" layoutY="102.0" prefHeight="25.0" prefWidth="81.0" />
+               </children>
+            </AnchorPane>
+         </content></Tab>
+    <Tab text="Second Part">
+         <content>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #252845;">
+               <children>
+                  <Label layoutX="14.0" layoutY="15.0" text="DE Assignment" textFill="WHITE">
+                     <font>
+                        <Font name="Microsoft Yi Baiti" size="22.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="157.0" layoutY="15.0" prefHeight="23.0" prefWidth="54.0" text="X from:" textFill="WHITE">
+                     <font>
+                        <Font name="Microsoft Yi Baiti" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="157.0" layoutY="55.0" prefHeight="23.0" prefWidth="54.0" text="X to:" textFill="WHITE">
+                     <font>
+                        <Font name="Microsoft Yi Baiti" size="20.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="X_from_textField1" layoutX="383.0" layoutY="15.0" onKeyTyped="#handleX_from_textField1" prefHeight="25.0" prefWidth="81.0" promptText="X from" />
+                  <Slider fx:id="X_from1" layoutX="230.0" layoutY="20.0" min= "-5.0" max="15.0" onMouseDragged="#handleX_from1" showTickLabels="true" showTickMarks="true" />
+                  <Slider fx:id="X_to1" layoutX="230.0" layoutY="63.0" max="15.0" onMouseDragged="#handleX_to1" showTickLabels="true" showTickMarks="true" />
+                  <TextField fx:id="X_to_textField1" layoutX="383.0" layoutY="57.0" onKeyTyped="#handleX_to_textField1" prefHeight="25.0" prefWidth="81.0" promptText="X to" />
+                  <Label layoutX="489.0" layoutY="15.0" prefHeight="23.0" prefWidth="54.0" text="Y(X0):" textFill="WHITE">
+                     <font>
+                        <Font name="Microsoft Yi Baiti" size="20.0" />
+                     </font>
+                  </Label>
+                  <Slider fx:id="Y_01" layoutX="554.0" layoutY="20.0" min = "-15.0" max="15.0" onMouseDragged="#handleY_01" showTickLabels="true" showTickMarks="true" />
+                  <TextField fx:id="Y_0_textField1" layoutX="706.0" layoutY="15.0" onKeyTyped="#handleY_0_textField1" prefHeight="25.0" prefWidth="81.0" promptText="Y(0)" />
+                  <CheckBox fx:id="EulerCheckBox1" disable="true" layoutX="813.0" layoutY="24.0" mnemonicParsing="false" onAction="#handleEulerCheckBox1" prefHeight="17.0" prefWidth="154.0" text="Euler" textFill="WHITE" />
+                  <CheckBox fx:id="ImprovedEulerCheckBox1" disable="true" layoutX="813.0" layoutY="49.0" mnemonicParsing="false" onAction="#handleImprovedEulerCheckBox1" prefHeight="17.0" prefWidth="154.0" text="Improved Euler" textFill="WHITE" />
+                  <CheckBox fx:id="RungeKuttaCheckBox1" disable="true" layoutX="813.0" layoutY="74.0" mnemonicParsing="false" onAction="#handleRungeKuttaCheckBox1" prefHeight="17.0" prefWidth="154.0" text="Runge-Kutta" textFill="WHITE" />
+                  <CheckBox fx:id="ExactSolutionCheckBox1" disable="true" layoutX="813.0" layoutY="99.0" mnemonicParsing="false" onAction="#handleExactSolutionCheckBox1" prefHeight="17.0" prefWidth="154.0" text="Exact Solution" textFill="WHITE" />
+                  <Circle fx:id="red1" layoutX="950.0" layoutY="33.0" radius="6.0" />
+                  <Circle fx:id="green1" layoutX="950.0" layoutY="58.0" radius="6.0" />
+                  <Circle fx:id="blue1" layoutX="950.0" layoutY="83.0" radius="6.0" />
+                  <Circle fx:id="grey1" layoutX="950.0" layoutY="108.0" radius="6.0" />
+                  <AnchorPane layoutY="150.0" opacity="0.85" prefHeight="630.0" prefWidth="1230.0" style="-fx-background-color: #FFFFFF;" />
+                  <Label layoutX="157.0" layoutY="105.0" prefHeight="23.0" prefWidth="64.0" text="N from:" textFill="WHITE">
+                     <font>
+                        <Font name="Microsoft Yi Baiti" size="20.0" />
+                     </font>
+                  </Label>
+                  <Slider fx:id="N_from1" layoutX="230.0" layoutY="106.0" min="1.0" max="50" onMouseDragged="#handleN_from1" showTickLabels="true" showTickMarks="true" />
+                  <Label layoutX="489.0" layoutY="105.0" prefHeight="23.0" prefWidth="64.0" text="N to:" textFill="WHITE">
+                     <font>
+                        <Font name="Microsoft Yi Baiti" size="20.0" />
+                     </font>
+                  </Label>
+                  <Slider fx:id="N_to1" layoutX="554.0" layoutY="106.0" min="1.0"  max="50" onMouseDragged="#handleN_to1" showTickLabels="true" showTickMarks="true" />
+                  <TextField fx:id="N_fromTextField1" layoutX="383.0" layoutY="102.0" onKeyTyped="#handleN_fromtextField1" prefHeight="25.0" prefWidth="81.0" promptText="N from" />
+                  <TextField fx:id="N_toTextField1" layoutX="706.0" layoutY="102.0" onKeyTyped="#handleN_totextField" prefHeight="25.0" prefWidth="81.0" promptText="N to" />
+                  <LineChart fx:id="lineGraph1" animated="false" createSymbols="false" layoutY="150.0" legendVisible="false" prefHeight="620.0" prefWidth="600.0" title="e^(2x) + e^x + y^2 - 2ye^x">
+                     <xAxis>
+                        <NumberAxis fx:id="X1" autoRanging="false" lowerBound="-10" side="BOTTOM" tickUnit="1" upperBound="10" />
+                     </xAxis>
+                     <yAxis>
+                        <NumberAxis fx:id="Y1" autoRanging="false" lowerBound="-10" side="LEFT" upperBound="10" />
+                     </yAxis>
+                  </LineChart>
+                  <LineChart fx:id="LTEGraph1" animated="false" createSymbols="false" layoutX="600.0" layoutY="150.0" legendVisible="false" prefHeight="310.0" prefWidth="600.0">
+                     <xAxis>
+                        <NumberAxis fx:id="LTEX1" autoRanging="false" lowerBound="-10" side="BOTTOM" tickUnit="1" upperBound="10" />
+                     </xAxis>
+                     <yAxis>
+                        <NumberAxis fx:id="LTEY1" autoRanging="false" lowerBound="-10" side="LEFT" upperBound="10" />
+                     </yAxis>
+                  </LineChart>
+                  <LineChart fx:id="GTEGraph1" animated="false" createSymbols="false" layoutX="600.0" layoutY="460.0" legendVisible="false" prefHeight="310.0" prefWidth="600.0">
+                     <xAxis>
+                        <NumberAxis fx:id="GTEX1" autoRanging="false" lowerBound="-10" side="BOTTOM" tickUnit="1" upperBound="10" />
+                     </xAxis>
+                     <yAxis>
+                        <NumberAxis fx:id="GTEY1" autoRanging="false" lowerBound="-10" side="LEFT" upperBound="10" />
+                     </yAxis>
+                  </LineChart>
+               </children>
+            </AnchorPane>
+         </content></Tab>
+  </tabs>
+</TabPane>
